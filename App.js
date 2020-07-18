@@ -65,7 +65,7 @@ export default function App() {
           <Image source={{uri: item.img }}
           style={styles.carouselImg} 
           />
-          <Text s >{item.title}</Text>
+          <Text style={styles.carouselText} >{item.title}</Text>
           <Icon
           name='play-circle-outline' 
           size={30}
@@ -175,5 +175,18 @@ const styles = StyleSheet.create({
     height: 300,
     borderRadius: 12,
     backgroundColor: 'rgba(0,0,0,0.5)' 
+  },
+  carouselText: {
+     padding: 15,
+     color: '#FFF',
+     position: 'absolute',
+     bottom: 10,
+     left: 2,
+     fontWeight: 'bold'
+  },
+  carouselIcon: {
+    position: 'absolute',
+    top: 15,
+    right: 15
   }
 });
