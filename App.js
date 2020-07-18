@@ -72,6 +72,21 @@ export default function App() {
               </TouchableOpacity>
             </View>
 
+            <Text style={{
+              color: '#FFF',
+              fontSize: 25,
+              fontWeight: 'bold',
+              marginLeft: 10,
+              marginVertical: 10}}
+              >
+              Acabou de chegar
+            </Text>
+            
+            <View style={styles.slideView}>
+
+            </View>
+
+
           </ImageBackground>
         </View>
       </View>
@@ -111,5 +126,11 @@ const styles = StyleSheet.create({
      position: 'absolute',
      right: 20,
      top: 15,
+  },
+  slideView: {
+    width: '100%',
+    height: 350,
+    justifyContent: 'center',
+    alignItems: 'center'  
   }
 });
