@@ -57,6 +57,7 @@ export default function App() {
     },
   ]);
   const [background, setBackgroud] = useState(lista[0].img);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const _renderItem = ({item, index}) => {
     return (
@@ -114,10 +115,21 @@ export default function App() {
               renderItem={_renderItem}
               sliderWidth={screenWidth}
               itemWidth={200}
-              inactiveSlideOpacity={0.5} 
+              inactiveSlideOpacity={0.5}
+              onSnapToItem={
+                (index) => {
+                  setBackgroud(lista[index].img);
+                  setActiveIndex(index);
+                }}
               />
             </View>
 
+            <View style={styles.moreInfo}>
+                <View>
+                  <Text>{lista[activeIndex].title}</Text>
+                  <Text>{lista[activeIndex].text}</Text>
+                </View>
+            </View>
 
           </ImageBackground>
         </View>
