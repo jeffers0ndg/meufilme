@@ -125,10 +125,16 @@ export default function App() {
             </View>
 
             <View style={styles.moreInfo}>
-                <View>
-                  <Text>{lista[activeIndex].title}</Text>
-                  <Text>{lista[activeIndex].text}</Text>
+                <View style={{marginTop: 10}}>
+                  <Text style={styles.movieTitle}>{lista[activeIndex].title}</Text>
+                  <Text style={styles.movieDesc}>{lista[activeIndex].text}</Text>
                 </View>
+                <Icon 
+                name='queue' 
+                color='#131313' 
+                size={30}
+                style={{marginRight: 15, marginTop: 10}}
+                />
             </View>
 
           </ImageBackground>
@@ -200,5 +206,27 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 15,
     right: 15
+  },
+  moreInfo: {
+    backgroundColor: '#FFF',
+    width: screenWidth,
+    height: screenWidth,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  movieTitle: {
+    paddingLeft: 15,
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#131313',
+    marginBottom: 5,
+  },
+  movieDesc: {
+    paddingLeft: 15,
+    color: '#131313',
+    fontSize: 14,
+    fontWeight: 'bold',
   }
 });
