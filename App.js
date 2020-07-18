@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View,
   ScrollView,
@@ -11,9 +11,12 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Carousel from 'react-native-snap-carousel';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 export default function App() {
+
+  const carouselRef = useRef(null);
   const [lista, setLista] = useState([
     {
       title: "O Justiceiro",
@@ -53,6 +56,15 @@ export default function App() {
     },
   ]);
   const [background, setBackgroud] = useState(lista[0].img);
+
+  const _renderItem = ({item, index}) => {
+    return (
+      <View>
+        <Text>{item.title}</Text>
+      </View> 
+    );
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={{ flex: 1, height: screenHeight }}>
@@ -83,7 +95,15 @@ export default function App() {
             </Text>
             
             <View style={styles.slideView}>
-
+              <Carousel 
+              style={styles.carousel}
+              ref={carouselRef}
+              data={lista}
+              renderItem={_renderItem}
+              sliderWidth={screenWidth}
+              itemWidth={200}
+              inactiveSlideOpacity={0.5} 
+              />
             </View>
 
 
