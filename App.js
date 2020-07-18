@@ -7,7 +7,8 @@ import {
   Dimensions,
   ImageBackground,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -60,7 +61,18 @@ export default function App() {
   const _renderItem = ({item, index}) => {
     return (
       <View>
-        <Text>{item.title}</Text>
+        <TouchableOpacity>
+          <Image source={{uri: item.img }}
+          style={styles.carouselImg} 
+          />
+          <Text s >{item.title}</Text>
+          <Icon
+          name='play-circle-outline' 
+          size={30}
+          color='#FFF'
+          style={styles.carouselIcon}
+          />
+        </TouchableOpacity>
       </View> 
     );
   };
@@ -152,5 +164,16 @@ const styles = StyleSheet.create({
     height: 350,
     justifyContent: 'center',
     alignItems: 'center'  
+  },
+  carousel: {
+    flex: 1,
+    overflow: 'visible'
+  },
+  carouselImg: {
+    alignSelf: 'center',
+    width: 200,
+    height: 300,
+    borderRadius: 12,
+    backgroundColor: 'rgba(0,0,0,0.5)' 
   }
 });
